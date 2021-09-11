@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document </title>
+    <script>
+    function time(){
+
+    var  now = new Date();
+     var hr = now.getHours();
+    var  min = now.getMinutes();
+     var  sec = now.getSeconds();
+   if( hr=="12"){
+       var hours =12;
+   }
+   else if(hr=="24"){
+       var hours =0;
+   }
+   else{
+        var hours =hr%12;
+   }
+   if(hr<10){
+       hours= "0"+hours;
+   }
+   if(min<10){
+       min ="0"+min;
+
+   }
+   if(sec<10){
+       sec ="0"+sec;
+   }
+   var ampm =hr<12?"AM ":"PM";
+   var timed = hours +":"+min+":"+sec +" "+ampm;
+   document.getElementById("time").innerText= timed  ;
+    }
+    setInterval(time,1000);
+
+    </script>
+</head>
+<body>
+    
+        <div id="time">
+            <span id="hour">12</span>:
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>
+            <span id="period">AM</span>
+
+        </div>
+    
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+     background-color: black;
+}
+#time{
+    color:#fff; 
+    background-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px 15px;
+    border : 5px solid rgb(46, 162, 198);
+    border-radius: 5px;
+
+}
+#time.hover{
+    color: rgb(46, 162, 198);
+    box-shadow: 0 0 30px rgb(red, green, blue) ;
+}
+
+#time{
+    font-size: 60px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+#time span:not(:last-child){
+    position: relative;
+    margin : 5px 10px;
+
+}
+#time span:last-child{
+    font-size: 30px;
+    background-color: rgb(46, 162, 198);
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 0 3px;
+
+}
+    </style>
+</body>
+</html>
